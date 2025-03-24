@@ -1,0 +1,10 @@
+documentation:
+  - '**/*.md'
+
+code:
+  - '**/*.py'
+  - '**/*.js'
+  - '**/*.ts'
+
+config:
+  - '.github/**/*'
